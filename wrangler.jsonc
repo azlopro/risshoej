@@ -24,5 +24,6 @@
 // go-live. Go-live: tilføj riishoej.dk under Custom domains.
 {
   "name": "risshoej",
-  "compatibility_date": "2026-07-17"
+  "compatibility_date": "2026-07-17",
+  "pages_build_output_dir": "public"
 }
