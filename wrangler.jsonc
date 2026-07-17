@@ -1,0 +1,15 @@
+// Cloudflare Pages-konfiguration for riishoej.dk
+//
+// Deploy (byg ALTID produktion først — aldrig hugo server-output!):
+//   hugo --gc --minify && wrangler pages deploy public
+//
+// Første gang: wrangler login  (Cloudflare-konto oprettes så den kan
+// overdrages til kunden, jf. aftalens ejerskabs-vilkår).
+// Preview-URL bliver https://riishoej-dk.pages.dev — beskyttet af
+// X-Robots-Tag: noindex i static/_headers, som FJERNES ved go-live.
+// Go-live: peg domænet på Cloudflare Pages (Custom domains) + fjern noindex.
+{
+  "name": "riishoej-dk",
+  "compatibility_date": "2026-07-17",
+  "pages_build_output_dir": "public"
+}
