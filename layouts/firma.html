@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="sidetop">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.undertekst }}<p>{{ . }}</p>{{ end }}
+  </div>
+</div>
+<section class="blok">
+  <div class="wrap om-grid">
+    <div class="prosa">
+      {{ .Content }}
+    </div>
+    <div class="billedstribe">
+      {{ range slice "billeder/1.jpg" "billeder/2.jpg" "billeder/3.jpg" "billeder/4.jpg" }}
+      {{ with resources.Get . }}<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="" loading="lazy">{{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

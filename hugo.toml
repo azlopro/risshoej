@@ -1,0 +1,46 @@
+baseURL = "https://riishoej.dk/"
+locale = "da-DK"
+title = "Riishøj Regnskabskontor"
+timeZone = "Europe/Copenhagen"
+
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "rss", "section"]
+
+[params]
+  beskrivelse = "Riishøj Regnskabskontor i Østbirk hjælper små og mellemstore virksomheder med bogføring, moms, løn og årsafslutning. En hjælpende hånd siden 1997."
+  ejer = "Mette Riishøj"
+  telefon = "24 67 75 11"
+  telefonLink = "+4524677511"
+  email = "regnskabskontor@riishoej.dk"
+  adresse = "Ryvej 5"
+  postnrBy = "8752 Østbirk"
+  cvr = "19 63 30 04"
+  etableret = "1997"
+
+[[menus.main]]
+  name = "Om kontoret"
+  pageRef = "/firma"
+  weight = 10
+
+[[menus.main]]
+  name = "Det hjælper jeg med"
+  pageRef = "/ydelser"
+  weight = 20
+
+[[menus.main]]
+  name = "Nyttige links"
+  pageRef = "/nyttige-links"
+  weight = 30
+
+[[menus.main]]
+  name = "Kontakt"
+  pageRef = "/kontakt"
+  weight = 40
+  [menus.main.params]
+    cta = true
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[imaging]
+  quality = 82

@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ $titel := cond .IsHome (printf "%s — bogføring i Østbirk siden %s" site.Title site.Params.etableret) (printf "%s — %s" .Title site.Title) }}
+<title>{{ $titel }}</title>
+<meta name="description" content="{{ .Params.beskrivelse | default site.Params.beskrivelse }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ $titel }}">
+<meta property="og:description" content="{{ .Params.beskrivelse | default site.Params.beskrivelse }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="da_DK">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+{{ $css := resources.Get "css/style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ partial "jsonld.html" . }}

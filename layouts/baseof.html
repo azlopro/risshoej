@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip" href="#hoved">Spring til indhold</a>
+
+<div class="topline">
+  <div class="wrap">
+    <span>{{ site.Params.adresse }} · {{ site.Params.postnrBy }}</span>
+    <span>Ring: <a href="tel:{{ site.Params.telefonLink }}">{{ site.Params.telefon }}</a></span>
+  </div>
+</div>
+
+<header>
+  <nav aria-label="Hovedmenu">
+    <a class="logo" href="{{ site.Home.RelPermalink }}">
+      <span class="maerke" aria-hidden="true">R</span>
+      <span>Riishøj Regnskabskontor<small>v/ Mette Riishøj · Østbirk</small></span>
+    </a>
+    <button class="burger" aria-label="Åbn menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <ul class="navlinks" id="menu">
+      {{ range site.Menus.main }}
+      <li><a href="{{ .URL }}"{{ if .Params.cta }} class="nav-cta"{{ else if $.IsMenuCurrent "main" . }} class="aktiv" aria-current="page"{{ end }}>{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
+
+<main id="hoved">
+{{ block "main" . }}{{ end }}
+</main>
+
+{{ if not .IsHome }}
+<div class="ring-baand">
+  <h2>Skal jeg give en hånd med tallene?</h2>
+  <p>Ring, så finder vi ud af, om jeg kan hjælpe — det koster ikke noget at spørge.</p>
+  <a class="knap" href="tel:{{ site.Params.telefonLink }}">Ring {{ site.Params.telefon }}</a>
+</div>
+{{ end }}
+
+{{ partial "footer.html" . }}
+
+{{ $js := resources.Get "js/side.js" | minify | fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+</body>
+</html>

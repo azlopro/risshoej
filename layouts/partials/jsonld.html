@@ -1,0 +1,24 @@
+{{- $org := dict
+  "@type" "AccountingService"
+  "@id" (printf "%s#kontor" site.Home.Permalink)
+  "name" "Riishøj Regnskabskontor"
+  "url" site.Home.Permalink
+  "telephone" site.Params.telefonLink
+  "email" site.Params.email
+  "foundingDate" site.Params.etableret
+  "vatID" "DK19633004"
+  "founder" (dict "@type" "Person" "name" site.Params.ejer)
+  "address" (dict "@type" "PostalAddress" "streetAddress" site.Params.adresse "postalCode" "8752" "addressLocality" "Østbirk" "addressCountry" "DK")
+  "areaServed" (slice "Østbirk" "Horsens og omegn")
+  "knowsAbout" (slice "Bogføring" "Momsopgørelse" "Lønindberetning" "Fakturering" "Debitorstyring" "Kreditorstyring" "Årsafslutning")
+  "priceRange" "Efter aftale"
+-}}
+{{- $web := dict "@type" "WebSite" "name" site.Title "url" site.Home.Permalink -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" (slice $org $web) | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- if .IsHome }}
+{{- $spm := slice -}}
+{{- range site.Data.faq -}}
+  {{- $spm = $spm | append (dict "@type" "Question" "name" .spoergsmaal "acceptedAnswer" (dict "@type" "Answer" "text" .svar)) -}}
+{{- end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $spm | jsonify (dict "noHTMLEscape" true) | safeJS }}</script>
+{{- end }}

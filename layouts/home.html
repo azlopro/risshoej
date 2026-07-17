@@ -1,0 +1,71 @@
+{{ define "main" }}
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>En hjælpende hånd til bogføringen — siden {{ site.Params.etableret }}.</h1>
+      <p>Riishøj Regnskabskontor i Østbirk hjælper små og mellemstore virksomheder med bogføring,
+      moms, løn og årsafslutning — når der er brug for en hånd, uden at I skal ansætte nogen.</p>
+      <div class="knapper">
+        <a class="knap primaer" href="tel:{{ site.Params.telefonLink }}">Ring {{ site.Params.telefon }}</a>
+        <a class="knap sekundaer" href="/ydelser/">Se hvad jeg hjælper med</a>
+      </div>
+    </div>
+    <aside class="hero-fakta">
+      <h2>Kort fortalt</h2>
+      <ul>
+        <li><b>Hvem:</b> {{ site.Params.ejer }}, selvstændig bogholder</li>
+        <li><b>Siden:</b> {{ site.Params.etableret }} — snart 30 år med tal</li>
+        <li><b>Hvor:</b> {{ site.Params.adresse }}, {{ site.Params.postnrBy }}</li>
+        <li><b>For hvem:</b> små og mellemstore virksomheder</li>
+        <li><b>Systemer:</b> bl.a. e-conomic og Dataløn</li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+<section class="blok">
+  <div class="wrap">
+    <h2>Det hjælper jeg med</h2>
+    <p class="indled">Alt det daglige omkring tallene — fra bilag til lønkørsel — så I kan bruge
+    tiden på jeres forretning. Bogføringen kan foregå her i huset.</p>
+    <ul class="ydelser">
+      {{ range site.Data.ydelser }}
+      <li><b>{{ .navn }}</b><span>{{ .kort }}</span></li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+
+<section class="blok tonet">
+  <div class="wrap">
+    <h2>Ofte stillede spørgsmål</h2>
+    <div class="faq">
+      {{ range site.Data.faq }}
+      <details>
+        <summary>{{ .spoergsmaal }}</summary>
+        <p>{{ .svar }}</p>
+      </details>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="blok">
+  <div class="wrap kontakt-grid">
+    <div>
+      <h2>Lad os tage en snak om jeres tal</h2>
+      <p class="indled">Det er hurtigst at ringe — så finder vi sammen ud af, om jeg er den rette
+      hjælp til jeres bogholderi.</p>
+      <div class="knapper">
+        <a class="knap primaer" href="tel:{{ site.Params.telefonLink }}">Ring {{ site.Params.telefon }}</a>
+        <a class="knap sekundaer" href="mailto:{{ site.Params.email }}">Skriv en mail</a>
+      </div>
+    </div>
+    <div class="kontakt-kort">
+      <p><b>{{ site.Params.ejer }}</b><br>{{ site.Params.adresse }}<br>{{ site.Params.postnrBy }}</p>
+      <p><a class="tlf" href="tel:{{ site.Params.telefonLink }}">{{ site.Params.telefon }}</a></p>
+      <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,19 @@
+<footer>
+  <div class="wrap">
+    <div>
+      <b>Riishøj Regnskabskontor</b><br>
+      v/ {{ site.Params.ejer }}<br>
+      {{ site.Params.adresse }}, {{ site.Params.postnrBy }}<br>
+      CVR {{ site.Params.cvr }}
+    </div>
+    <div>
+      Telefon: <a href="tel:{{ site.Params.telefonLink }}">{{ site.Params.telefon }}</a><br>
+      E-mail: <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a><br>
+      <a href="/persondatapolitik/">Persondatapolitik</a>
+    </div>
+    <div class="kolofon">
+      Etableret {{ site.Params.etableret }} · Siden bruger ingen cookies<br>
+      og indsamler ingen oplysninger om dig.
+    </div>
+  </div>
+</footer>

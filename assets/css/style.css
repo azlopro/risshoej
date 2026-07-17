@@ -1,0 +1,113 @@
+/* Riishøj Regnskabskontor — moderniseret udgave af deres mørkeblå (#003399) */
+:root{
+  --blaa:#1C3D8F; --blaa-dyb:#122A66; --blaa-lys:#EDF1FA; --linje:#DCE3F0;
+  --tekst:#20242C; --daemp:#5A6372; --varm:#B98A2F; --flade:#FAFAF7; --hvid:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;color:var(--tekst);background:var(--hvid);
+     font-size:1.06rem;line-height:1.65;-webkit-text-size-adjust:100%}
+h1,h2,h3,.logo,nav,.knap,.topline,.kort-fortalt dt,footer{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blaa)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.2rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--blaa);color:#fff;padding:.5rem 1rem;z-index:99}
+.skip:focus{left:0}
+
+/* Topline + header */
+.topline{background:var(--blaa-dyb);color:#cdd8f2;font-size:.85rem;padding:.35rem 0}
+.topline .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.topline a{color:#fff;text-decoration:none;font-weight:600}
+header{background:var(--hvid);border-bottom:1px solid var(--linje);position:sticky;top:0;z-index:50}
+nav{display:flex;align-items:center;justify-content:space-between;max-width:1040px;margin:0 auto;padding:.65rem 1.2rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--blaa-dyb);font-weight:700;font-size:1.12rem;line-height:1.15}
+.logo .maerke{width:2.3rem;height:2.3rem;border-radius:.55rem;background:var(--blaa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:800;font-family:Georgia,serif;flex:none}
+.logo small{display:block;font-weight:500;color:var(--daemp);font-size:.72rem;letter-spacing:.04em}
+.navlinks{display:flex;gap:1.4rem;list-style:none;align-items:center}
+.navlinks a{text-decoration:none;color:var(--tekst);font-size:.95rem;font-weight:600}
+.navlinks a.aktiv{color:var(--blaa)}
+.navlinks a.nav-cta{background:var(--blaa);color:#fff;padding:.45rem .95rem;border-radius:.5rem}
+.burger{display:none;background:none;border:1px solid var(--linje);border-radius:.4rem;font-size:1.3rem;padding:.15rem .55rem;cursor:pointer}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--blaa-lys) 0%,var(--hvid) 100%);padding:3.2rem 0 2.6rem}
+.hero .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.18;color:var(--blaa-dyb);margin-bottom:.9rem}
+.hero p{font-size:1.12rem;max-width:34rem;margin-bottom:1.4rem}
+.knapper{display:flex;gap:.8rem;flex-wrap:wrap}
+.knap{display:inline-block;text-decoration:none;font-weight:700;padding:.7rem 1.3rem;border-radius:.55rem;font-size:1rem}
+.knap.primaer{background:var(--blaa);color:#fff}
+.knap.sekundaer{background:var(--hvid);color:var(--blaa-dyb);border:1.5px solid var(--linje)}
+.hero-fakta{background:var(--hvid);border:1px solid var(--linje);border-radius:.9rem;padding:1.3rem 1.4rem;box-shadow:0 8px 30px rgba(18,42,102,.07)}
+.hero-fakta h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--daemp);margin-bottom:.6rem}
+.hero-fakta ul{list-style:none}
+.hero-fakta li{padding:.32rem 0;border-bottom:1px solid var(--linje);font-size:.97rem}
+.hero-fakta li:last-child{border-bottom:none}
+.hero-fakta b{color:var(--blaa-dyb)}
+
+/* Sektioner */
+section.blok{padding:2.6rem 0}
+section.blok.tonet{background:var(--flade);border-top:1px solid var(--linje);border-bottom:1px solid var(--linje)}
+.blok h2{font-size:1.5rem;color:var(--blaa-dyb);margin-bottom:1rem}
+.blok .indled{max-width:44rem;margin-bottom:1.4rem}
+
+/* Ydelser-grid */
+.ydelser{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.9rem;list-style:none}
+.ydelser li{background:var(--hvid);border:1px solid var(--linje);border-radius:.7rem;padding:.85rem 1rem .8rem;font-size:.97rem}
+.ydelser b{display:block;color:var(--blaa-dyb);margin-bottom:.15rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.ydelser span{color:var(--daemp);font-size:.9rem}
+
+/* FAQ */
+.faq details{border:1px solid var(--linje);border-radius:.6rem;background:var(--hvid);margin-bottom:.6rem;padding:0}
+.faq summary{cursor:pointer;font-weight:700;padding:.8rem 1rem;color:var(--blaa-dyb);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.faq details p{padding:0 1rem .9rem;max-width:44rem}
+
+/* Om-side */
+.om-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2.2rem;align-items:start}
+.billedstribe{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem}
+.billedstribe img{border-radius:.5rem;border:1px solid var(--linje);width:100%}
+
+/* Kontakt */
+.kontakt-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.kontakt-kort{background:var(--blaa-lys);border:1px solid var(--linje);border-radius:.9rem;padding:1.4rem}
+.kontakt-kort p{margin-bottom:.7rem}
+.kontakt-kort a.tlf{font-size:1.5rem;font-weight:800;color:var(--blaa-dyb);text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.kort-klik{border:1.5px dashed var(--linje);border-radius:.9rem;padding:1.2rem;text-align:center;color:var(--daemp);font-size:.95rem}
+.kort-klik button{background:var(--blaa);color:#fff;border:none;border-radius:.5rem;padding:.6rem 1.1rem;font-weight:700;cursor:pointer;font-size:.95rem;margin-top:.6rem}
+.kort-klik iframe{width:100%;height:320px;border:0;border-radius:.6rem;margin-top:.8rem}
+
+/* Ring-bånd */
+.ring-baand{background:var(--blaa);color:#fff;text-align:center;padding:2rem 1rem}
+.ring-baand h2{font-size:1.3rem;margin-bottom:.4rem}
+.ring-baand p{color:#cdd8f2;margin-bottom:1rem}
+.ring-baand .knap{background:#fff;color:var(--blaa-dyb)}
+
+/* Links-side */
+.linkliste{list-style:none;max-width:44rem}
+.linkliste li{border-bottom:1px solid var(--linje);padding:.7rem 0}
+.linkliste b{display:block}
+.linkliste span{color:var(--daemp);font-size:.92rem}
+
+/* Footer */
+footer{background:var(--blaa-dyb);color:#c3cfe9;padding:2rem 0;font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+footer a{color:#fff}
+footer .kolofon{color:#8fa1c9;font-size:.83rem}
+
+/* Prosa (undersider) */
+.prosa{max-width:46rem}
+.prosa p{margin-bottom:1rem}
+.prosa h2{margin-top:1.6rem}
+.sidetop{background:var(--blaa-lys);padding:2.2rem 0 1.6rem;border-bottom:1px solid var(--linje)}
+.sidetop h1{color:var(--blaa-dyb);font-size:clamp(1.5rem,3.5vw,2.1rem)}
+.sidetop p{color:var(--daemp);max-width:44rem;margin-top:.4rem}
+
+@media (max-width:760px){
+  .hero .wrap,.om-grid,.kontakt-grid{grid-template-columns:1fr}
+  .burger{display:block}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--hvid);
+    flex-direction:column;gap:0;border-bottom:1px solid var(--linje);padding:.5rem 1.2rem 1rem}
+  .navlinks.aaben{display:flex}
+  .navlinks li{width:100%;padding:.45rem 0}
+  .topline .wrap{justify-content:center}
+}

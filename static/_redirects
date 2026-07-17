@@ -1,0 +1,7 @@
+# Gamle Word-eksport-adresser -> nye sider (bevarer bogmærker og linkværdi)
+/index.htm            /                301
+/forside.htm          /                301
+/firma.htm            /firma/          301
+/hvad.htm             /ydelser/        301
+/kontakt.htm          /kontakt/        301
+/links.htm            /nyttige-links/  301

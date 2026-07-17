@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="sidetop">
+  <div class="wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.undertekst }}<p>{{ . }}</p>{{ end }}
+  </div>
+</div>
+<section class="blok">
+  <div class="wrap kontakt-grid">
+    <div>
+      <div class="kontakt-kort">
+        <p><b>{{ site.Params.ejer }}</b><br>Riishøj Regnskabskontor<br>{{ site.Params.adresse }}<br>{{ site.Params.postnrBy }}</p>
+        <p><a class="tlf" href="tel:{{ site.Params.telefonLink }}">{{ site.Params.telefon }}</a></p>
+        <p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+        <p>CVR {{ site.Params.cvr }}</p>
+      </div>
+    </div>
+    <div>
+      <div class="kort-klik" id="kortklik">
+        <p><b>Her bor jeg</b><br>Kortet indlæses først, når du selv vælger det —
+        så sender siden ingen oplysninger til Google, før du klikker.</p>
+        <button type="button" data-kort="https://maps.google.com/maps?q=Ryvej%205%2C%208752%20%C3%98stbirk&output=embed">Vis kort fra Google Maps</button>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
