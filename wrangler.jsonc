@@ -1,15 +1,28 @@
-// Cloudflare Pages-konfiguration for riishoej.dk
+// Cloudflare Pages — konfiguration for riishoej.dk
 //
-// Deploy (byg ALTID produktion først — aldrig hugo server-output!):
-//   hugo --gc --minify && wrangler pages deploy public
+// VIGTIGT: dette Cloudflare-projekt er oprettet som et PAGES-projekt (ikke Workers).
+// Wrangler advarer selv om det, hvis man kører "wrangler deploy" på det ("It seems
+// that you have run wrangler deploy on a Pages project"). Deploy-kommandoen SKAL
+// derfor være "wrangler pages deploy", ikke "wrangler deploy" — ellers fejler
+// buildet med "Missing entry-point to Worker script or to assets directory",
+// fordi wrangler deploy leder efter en Workers-entry (src/index.ts) og ikke
+// forstår et statisk assets-output på et Pages-projekt.
 //
-// Første gang: wrangler login  (Cloudflare-konto oprettes så den kan
-// overdrages til kunden, jf. aftalens ejerskabs-vilkår).
-// Preview-URL bliver https://riishoej-dk.pages.dev — beskyttet af
-// X-Robots-Tag: noindex i static/_headers, som FJERNES ved go-live.
-// Go-live: peg domænet på Cloudflare Pages (Custom domains) + fjern noindex.
+// I Cloudflare-dashboardet (Workers & Pages → riishoej-dk → Settings → Build):
+//   Build command:   hugo --gc --minify
+//   Deploy command:  npx wrangler pages deploy public
+//   Env-variabel:    HUGO_VERSION = 0.163.2
+//
+// Hvis build-miljøet mod forventning ikke har Hugo, brug denne build command:
+//   curl -sL https://github.com/gohugoio/hugo/releases/download/v0.163.2/hugo_extended_0.163.2_linux-amd64.tar.gz | tar xz && ./hugo --gc --minify
+//
+// Lokal deploy (uden git-flowet):
+//   hugo --gc --minify && npx wrangler pages deploy public
+//
+// _headers og _redirects i public/ understøttes af Pages og virker som beskrevet.
+// Preview er beskyttet af X-Robots-Tag: noindex i static/_headers — FJERNES ved
+// go-live. Go-live: tilføj riishoej.dk under Custom domains.
 {
   "name": "riishoej-dk",
-  "compatibility_date": "2026-07-17",
-  "pages_build_output_dir": "public"
+  "compatibility_date": "2026-07-17"
 }
